@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-for和v-bind的结合</title>
+  <style>
+    .active {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <ul>
+<!--    <li v-for="b in books">{{b}}</li>-->
+    <li v-for="(b, index ) in books"
+        :class="{active: currentIndex === index}"
+        @click="liClick(index)">{{index}}-{{b}}</li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      books: ['西游记', '水浒传', '红楼梦', '三国演义'],
+      currentIndex: -1
+    },
+    methods: {
+      liClick(index) {
+        this.currentIndex = index
+      }
+    }
+  });
+</script>
+</body>
+</html>
