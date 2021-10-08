@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>块级作用域</title>
+</head>
+<body>
+<button>1</button>
+<button>2</button>
+<button>3</button>
+<button>4</button>
+<button>5</button>
+<script>
+  /*
+  * ES5中的 var没有块级作用域 (比如 if/for)
+  * ES6中的 let有块级作用域 (比如 if/for)
+  *
+  * ES5之前因为 if和 for都没有块级作用域的概念，所以在很多时候，
+  *  我们都必须借用 function的作用域来解决应用外面变量的问题
+  *
+  * ES6中，加入了 let：有 if和 for的块级作用域
+  * */
+  // 1.变量作用域: 变量在什么范围内是可用的
+
+  //2.没有块级作用域引起的问题  if的块级、for的块级
+
+
+  const btns = document.getElementsByTagName('button');
+  for (let i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click', function () {
+      console.log('第' + i + '个按钮被点击');
+    });
+  }
+</script>
+
+</body>
+</html>
