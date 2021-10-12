@@ -24,7 +24,8 @@
       <td >{{item.id}}</td>
       <td >{{item.name}}</td>
       <td >{{item.data}}</td>
-      <td >{{item.price}}</td>
+<!--  <td >{{getFinalPrice(item.price)}}</td>-->
+      <td >{{item.price | showPrice}}</td>
       <td>
         <button>-</button>
         {{item.counter}}
@@ -34,9 +35,14 @@
     </tr>
     </tbody>
   </table>
+
+  <h2>总价格: {{}}</h2>
 </div>
 
 <script src="../js/vue.js"></script>
 <script src="main.js"></script>
+<script>
+
+</script>
 </body>
 </html>
