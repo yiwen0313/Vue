@@ -32,11 +32,17 @@ const app = new Vue({
       }
     ]
   },
-  /*methods: {
-    getFinalPrice(price) {
+  methods: {
+    /*getFinalPrice(price) {
       return '￥' +  price.toFixed(2);
+    }*/
+    increment(index) {
+      this.books[index].counter++;
+    },
+    decrement(index) {
+      this.books[index].counter--;
     }
-  },*/
+  },
   filters: {
     showPrice(price) {
       return '￥' +  price.toFixed(2);

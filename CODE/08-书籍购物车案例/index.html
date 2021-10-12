@@ -20,16 +20,16 @@
     </tr>
     </thead>
     <tbody>
-    <tr v-for="item in books">
+    <tr v-for="(item, index) in books">
       <td >{{item.id}}</td>
       <td >{{item.name}}</td>
       <td >{{item.data}}</td>
 <!--  <td >{{getFinalPrice(item.price)}}</td>-->
       <td >{{item.price | showPrice}}</td>
       <td>
-        <button>-</button>
+        <button @click="decrement(index)" :disabled="item.counter <= 1">-</button>
         {{item.counter}}
-        <button>+</button>
+        <button @click="increment(index)">+</button>
       </td>
       <td><button>移除</button></td>
     </tr>
