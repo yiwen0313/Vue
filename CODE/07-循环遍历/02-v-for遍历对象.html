@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-for遍历对象</title>
+</head>
+<body>
+
+<div id="app">
+  <!-- 1.在遍历对象的过程中，如果只是获取一个值，那么获取到的是value -->
+  <ul>
+    <li v-for="item in info">{{item}}</li>
+  </ul>
+
+  <!-- 2.获取前key和value  格式：(value, key) -->
+  <ul>
+    <li v-for="(value, key) in info">{{value}}-{{key}}</li>
+  </ul>
+
+  <!-- 3.获取前key、value和index  格式：(value, key, index)  对象很少需要获取index -->
+  <ul>
+    <li v-for="(value, key, index) in info">{{value}}-{{key}}-{{index+1}}</li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      info: {
+        name: 'yw',
+        age: 18,
+        height: 180
+      }
+    },
+    methods: {
+
+    }
+  });
+</script>
+
+</body>
+</html>
