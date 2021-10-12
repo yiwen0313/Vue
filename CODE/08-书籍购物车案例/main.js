@@ -41,6 +41,18 @@ const app = new Vue({
     },
     decrement(index) {
       this.books[index].counter--;
+    },
+    removeHandle(index) {
+      this.books.splice(index, 1);
+    }
+  },
+  computed: {
+    totalPrice() {
+      let totalPrice = 0;
+      for (let i = 0; i < this.books.length; i++) {
+        totalPrice += this.books[i].price * this.books[i].counter;
+      }
+      return totalPrice;
     }
   },
   filters: {
