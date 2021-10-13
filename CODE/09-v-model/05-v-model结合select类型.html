@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-model结合select类型使用</title>
+</head>
+<body>
+
+<div id="app">
+  <!-- 1.选择一个 -->
+  <select name="abc" v-model="fruit">
+    <option value="冬枣">冬枣</option>
+    <option value="榴莲">榴莲</option>
+    <option value="猕猴桃">猕猴桃</option>
+    <option value="阳光玫瑰葡萄">阳光玫瑰葡萄</option>
+  </select>
+  <h2>{{fruit}}</h2>
+
+  <br><br>
+  <!-- 选择多个 -->
+  <select name="abc" v-model="fruits" multiple>
+    <option value="冬枣">冬枣</option>
+    <option value="榴莲">榴莲</option>
+    <option value="猕猴桃">猕猴桃</option>
+    <option value="阳光玫瑰葡萄">阳光玫瑰葡萄</option>
+  </select>
+  <h2>{{fruits}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      fruit: '冬枣',
+      fruits: []
+    }
+  });
+</script>
+
+</body>
+</html>
