@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>组件中的数据存放问题</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn1></cpn1>
+  <cpn1></cpn1>
+</div>
+
+<template id="cpn1">
+  <div>
+    <h2>{{title}}</h2>
+    <p>我是内容hhhh</p>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  Vue.component('cpn1', {
+    template: '#cpn1',
+    data() {
+      return {
+        title: 'abc'
+      }
+    }
+  });
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    }
+  });
+</script>
+
+</body>
+</html>
