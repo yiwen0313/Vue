@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>子传父-案例-计数器练习</title>
+</head>
+<body>
+
+<div id="app">
+  <cpn @increnment="changeTotal" @decrenment="changeTotal"></cpn>
+  <h2>点击次数：{{total}}</h2>
+</div>
+
+<template id="cpn">
+  <div>
+    <button @click="increment">+1</button>
+    <button @click="decrement">-1</button>
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const cpn = {
+    template: '#cpn',
+    data() {
+      return {
+        counter: 0
+      }
+    },
+    methods: {
+      increment() {
+        this.counter++;
+        this.$emit('increment', this.counter);
+      },
+      decrement() {
+        this.counter--;
+        this.$emit('decrement', this.counter);
+      }
+    }
+  }
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      total: 0
+    },
+    methods: {
+      changeTotal(counter) {
+        this.total = counter;
+      }
+    },
+    components: {
+      cpn
+    }
+  });
+</script>
+
+</body>
+</html>
