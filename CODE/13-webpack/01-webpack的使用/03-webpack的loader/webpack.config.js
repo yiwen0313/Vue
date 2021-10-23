@@ -4,7 +4,8 @@ module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: 'dist/'
   },
   module: {
     rules: [
@@ -24,6 +25,20 @@ module.exports = {
         }, {
           loader: "less-loader" // compiles Less to CSS
         }]
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              // 当加载的图片，小于 limit时，会将图片变异成base64字符串形式
+              // 当加载的图片，大于 limit时，需要使用file-loader模块进行加载
+              limit: 8192,
+              name: 'img/[name].[hash:8].[ext]'
+            }
+          }
+        ]
       }
     ]
   }
