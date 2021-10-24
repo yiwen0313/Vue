@@ -50,6 +50,10 @@ module.exports = {
             presets: ['es2015']
           }
         }
+      },
+      {
+        test: /\.vue$/,
+        use: ['vue-loader']
       }
     ]
   },
@@ -59,6 +63,7 @@ module.exports = {
     * runtime-compiler  --> 代码中，可以有template，因为有compiler可以用于编译template
     * */
     // alias 别名
+    extensions: ['.js', '.css', '.vue'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     }
