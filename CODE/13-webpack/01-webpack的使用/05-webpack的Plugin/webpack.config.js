@@ -76,6 +76,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: 'index.html'
     }),
+    // 开发中不建议丑化，js丑化后，在浏览器中调试很不方便
     new UglifyjsWebpackPlugin()
-  ]
+  ],
+  devServer: {
+    contentBase: './dist',
+    // 页面实时刷新
+    inline: true
+  }
 }
