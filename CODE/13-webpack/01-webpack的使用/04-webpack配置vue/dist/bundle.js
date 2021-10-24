@@ -817,10 +817,15 @@ document.writeln('<h2>Hello</h2>');
 // 5.使用vue进行开发
 
 
-var app = new _vue2.default({
+new _vue2.default({
   el: '#app',
+  template: '\n    <div>\n      <h2>{{message}}</h2>\n      <button @click="btnClick">\u6309\u94AE</button>\n      <h2>{{name}}</h2>\n    </div>\n  ',
   data: {
-    message: 'Hello webpack'
+    message: 'Hello webpack',
+    name: 'yw'
+  },
+  methods: {
+    btnClick: function btnClick() {}
   }
 });
 

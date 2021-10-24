@@ -25,9 +25,23 @@ document.writeln('<h2>Hello</h2>');
 // 5.使用vue进行开发
 import Vue from 'vue';
 
-const app = new Vue({
+new Vue({
   el: '#app',
+  // el和template同时存在时，template会替换el：就不要需要改index.html
+  template: `
+    <div>
+      <h2>{{message}}</h2>
+      <button @click="btnClick">按钮</button>
+      <h2>{{name}}</h2>
+    </div>
+  `,
   data: {
-    message: 'Hello webpack'
+    message: 'Hello webpack',
+    name: 'yw'
+  },
+  methods: {
+    btnClick() {
+
+    }
   }
 });
