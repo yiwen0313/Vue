@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = {
   entry: './src/main.js',
@@ -74,6 +75,7 @@ module.exports = {
     new webpack.BannerPlugin('最终版权归xxx所有'),
     new HtmlWebpackPlugin({
       template: 'index.html'
-    })
+    }),
+    new UglifyjsWebpackPlugin()
   ]
 }
