@@ -3,6 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 
+
+/*
+* 如果在之后的开发中，依然使用template，就需要选择Runtime-Compiler
+* 如果在之后的开发中，使用的是 .vue文件开发，那么可以选择Runtime-only
+* */
+
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
