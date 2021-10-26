@@ -15,13 +15,31 @@ export default {
   name: "Home",
   data() {
     return {
-      message: '你好啊'
+      message: '你好啊',
+      path: '/home/news'
     }
   },
-  /*created() {
-    console.log('create')
-    document.title = '首页'
-  }*/
+  created() {
+    console.log('home create')
+  },
+  destroyed() {
+    console.log('home destroyed');
+  },
+
+  // 这两个函数，只有该组件使用<keep-alive>被保持了状态时，才是有效的
+  activated() {
+    console.log('activated');
+    this.$router.push(this.path).catch(err=>{})
+  },
+  deactivated() {
+    console.log('deactivated');
+  },
+
+  beforeRouteLeave(to, from, next) {
+    console.log(this.$route.path);
+    this.path = this.$route.path;
+    next()
+  }
 }
 </script>
 

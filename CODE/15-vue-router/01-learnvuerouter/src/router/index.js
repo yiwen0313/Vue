@@ -52,7 +52,7 @@ const routes = [
       title: '关于'
     },
     beforeEnter: (to, from, next) => {
-      console.log('about-beforeEnter')
+      // console.log('about-beforeEnter')
       next()
     }
   }
@@ -84,13 +84,13 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   // 从 from跳转到 to
   document.title = to.matched[0].meta.title
-  console.log('+++');
+  // console.log('+++');
   next();
 })
 
 // 后置钩子
 router.afterEach((to, from) => {
-  console.log('---');
+  // console.log('---');
 })
 
 // 3.将router对象传入到Vue实例中

@@ -23,7 +23,9 @@
 <!--    <button @click="clickUser">用户</button>-->
 <!--    <button @click="clickProfile">档案</button>-->
 
-    <router-view></router-view>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
