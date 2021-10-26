@@ -12,6 +12,7 @@ const About = () => import('../components/About')
 const User = () => import('../components/User')
 const HomeNews = () => import('../components/HomeNews')
 const HomeMessage = () => import('../components/HomeMessage')
+const Profile = () => import('../components/Profile')
 
 // 1.通过Vue.use(插件)，安装插件
 Vue.use(VueRouter)
@@ -48,8 +49,13 @@ const routes = [
   {
     path: '/user/:userId',
     component: User
+  },
+  {
+    path: '/profile',
+    component: Profile
   }
 ]
+
 const router = new VueRouter({
   // 配置路由和组件之间的映射关系
   routes,

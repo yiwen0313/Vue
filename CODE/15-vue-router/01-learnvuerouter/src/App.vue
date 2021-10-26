@@ -12,6 +12,17 @@
     <router-link to="/home">首页</router-link>
     <router-link to="/about">关于</router-link>
     <router-link :to="'/user/'+userId">用户</router-link>
+
+   <!--
+     URL：
+        协议://主机:端口/路径?查询
+        scheme://host:port/path?query#fragment
+    -->
+    <router-link :to="{path: '/profile', query: {name: 'yw', age: '18'}}">档案</router-link>
+
+<!--    <button @click="clickUser">用户</button>-->
+<!--    <button @click="clickProfile">档案</button>-->
+
     <router-view></router-view>
   </div>
 </template>
@@ -24,19 +35,31 @@ export default {
       userId: 'zhangsan'
     }
   },
-  /*methods: {
+  methods: {
     clickHome() {
       // 通过代码的方式修改路由
-      // this.$router.push('/home')
-      this.$router.replace('/home')
+      this.$router.push('/home')
+      // this.$router.replace('/home')
       // console.log('clickHome');
     },
     clickAbout() {
-      // this.$router.push('/about')
-      this.$router.replace('/about')
+      this.$router.push('/about')
+      // this.$router.replace('/about')
       // console.log('clickAbout');
+    },
+    clickUser() {
+      this.$router.push('/user/' + this.userId)
+    },
+    clickProfile() {
+      this.$router.push({
+        path: '/profile',
+        query: {
+          name: 'gxy',
+          age: 20
+        }
+      })
     }
-  }*/
+  }
 }
 </script>
 
