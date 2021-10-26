@@ -10,6 +10,11 @@ Vue.use(VueRouter)
 // 2.创建路由对象
 const routes = [
   {
+    path: '',
+    // redirect 重定向
+    redirect: '/home'
+  },
+  {
     path: '/home',
     component: Home
   },
@@ -20,7 +25,8 @@ const routes = [
 ]
 const router = new VueRouter({
   // 配置路由和组件之间的映射关系
-  routes
+  routes,
+  mode: 'history'
 })
 
 // 将router对象传入到Vue实例中
