@@ -15,10 +15,12 @@ export default {
       return this.$route.params.userId
     }
   },
-  /*created() {
-    console.log('create')
-    document.title = '用户'
-  }*/
+  created() {
+    console.log('User create')
+  },
+  destroyed() {
+    console.log('User destroyed');
+  }
 }
 </script>
 

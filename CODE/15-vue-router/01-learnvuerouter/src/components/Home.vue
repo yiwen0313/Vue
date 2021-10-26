@@ -20,10 +20,10 @@ export default {
     }
   },
   created() {
-    console.log('home create')
+    console.log('Home create')
   },
   destroyed() {
-    console.log('home destroyed');
+    console.log('Home destroyed');
   },
 
   // 这两个函数，只有该组件使用<keep-alive>被保持了状态时，才是有效的

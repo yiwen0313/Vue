@@ -23,7 +23,8 @@
 <!--    <button @click="clickUser">用户</button>-->
 <!--    <button @click="clickProfile">档案</button>-->
 
-    <keep-alive>
+    // exclude = "不能有空格"
+    <keep-alive exclude="Profile,User">
       <router-view/>
     </keep-alive>
   </div>
