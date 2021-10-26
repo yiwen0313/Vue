@@ -2,11 +2,16 @@
   <div id="app">
 <!--<router-link to="/home" tag="button" replace active-class="active">首页</router-link>-->
 <!--<router-link to="/about" tag="button" replace active-class="active">关于</router-link>-->
+
 <!--<router-link to="/home" tag="button" replace >首页</router-link>-->
 <!--<router-link to="/about" tag="button" replace>关于</router-link>-->
 
-    <button @click="clickHome">首页</button>
-    <button @click="clickAbout">关于</button>
+<!-- <button @click="clickHome">首页</button>-->
+<!-- <button @click="clickAbout">关于</button>-->
+
+    <router-link to="/home">首页</router-link>
+    <router-link to="/about">关于</router-link>
+    <router-link :to="'/user/'+userId">用户</router-link>
     <router-view></router-view>
   </div>
 </template>
@@ -14,7 +19,12 @@
 <script>
 export default {
   name: 'App',
-  methods: {
+  data() {
+    return {
+      userId: 'zhangsan'
+    }
+  },
+  /*methods: {
     clickHome() {
       // 通过代码的方式修改路由
       // this.$router.push('/home')
@@ -26,7 +36,7 @@ export default {
       this.$router.replace('/about')
       // console.log('clickAbout');
     }
-  }
+  }*/
 }
 </script>
 
