@@ -51,7 +51,12 @@ const routes = [
     meta: {
       title: '关于'
     },
-  },
+    beforeEnter: (to, from, next) => {
+      console.log('about-beforeEnter')
+      next()
+    }
+  }
+  ,
   {
     path: '/user/:userId',
     component: User,
@@ -75,11 +80,17 @@ const router = new VueRouter({
   linkActiveClass: 'active'
 })
 
-// 前置钩子(hook)
+// 前置守卫(guard)
 router.beforeEach((to, from, next) => {
   // 从 from跳转到 to
   document.title = to.matched[0].meta.title
+  console.log('+++');
   next();
+})
+
+// 后置钩子
+router.afterEach((to, from) => {
+  console.log('---');
 })
 
 // 3.将router对象传入到Vue实例中
