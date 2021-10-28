@@ -8,6 +8,8 @@
       <excludeFolder url="file://$MODULE_DIR$/CODE/13-webpack/01-webpack的使用/05-webpack-Plugin的使用/node_modules/vue/src/platforms" />
       <excludeFolder url="file://$MODULE_DIR$/CODE/13-webpack/01-webpack的使用/05-webpack的Plugin/node_modules/vue/src/platforms" />
       <excludeFolder url="file://$MODULE_DIR$/CODE/13-webpack/01-webpack的使用/06-webpack配置分离/node_modules/vue/src/platforms" />
+      <excludeFolder url="file://$MODULE_DIR$/CODE/15-vue-router/03-exercise-tabbar/node_modules/vue/src/platforms" />
+      <excludeFolder url="file://$MODULE_DIR$/CODE/15-vue-router/04-exercise-tabbar/node_modules/vue/src/platforms" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
