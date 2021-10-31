@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  // 链式编程
+  new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve()
+    }, 1000)
+  }).then(() => {
+    console.log('Hello World');
+    console.log('Hello World');
+    console.log('Hello World');
+    console.log('Hello World');
+
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve()
+      }, 1000)
+    }).then(() => {
+      console.log('Hello Vue');
+      console.log('Hello Vue');
+      console.log('Hello Vue');
+      console.log('Hello Vue');
+
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve()
+        }, 1000)
+      }).then(() => {
+        console.log('Hello Promise');
+        console.log('Hello Promise');
+        console.log('Hello Promise');
+        console.log('Hello Promise');
+      })
+    })
+  })
+</script>
+</body>
+</html>
