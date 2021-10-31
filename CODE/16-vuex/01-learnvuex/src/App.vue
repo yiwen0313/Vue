@@ -45,7 +45,14 @@ export default {
     * */
     // payload：载荷，负载
     addCount(count) {
-      this.$store.commit('incrementCount', count)
+      // 1.普通的提交风格
+      // this.$store.commit('incrementCount', count)
+
+      // 2.特殊的提交风格
+      this.$store.commit({
+        type: 'incrementCount',
+        count
+      })
     },
     addStudent() {
       const stu = {id: 114, name: '白骨精', age: 999}
