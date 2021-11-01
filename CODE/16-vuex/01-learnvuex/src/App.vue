@@ -64,7 +64,22 @@ export default {
       this.$store.commit(types.ADDSTUDENT, stu)
     },
     updateInfo() {
-      this.$store.commit(types.UPDATEINFO)
+      // this.$store.commit(types.UPDATEINFO)
+
+      // 不优雅
+      /*this.$store.dispatch('aUpdateInfo', {
+        message: '我是携带的信息',
+        success: () => {
+          console.log('里面已经完成了')
+        }
+      })*/
+
+      this.$store
+        .dispatch('aUpdateInfo', '我是携带的信息')
+        .then(res => {
+          console.log('里面完成了提交');
+          console.log(res);
+        })
     }
   },
 }

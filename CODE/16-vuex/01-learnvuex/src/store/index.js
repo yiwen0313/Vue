@@ -46,7 +46,12 @@ const store = new Vuex.Store({
       state.students.push(stu)
     },
     [UPDATEINFO](state) {
-      // state.info.name = 'ywy'
+      state.info.name = 'gxy'
+
+      // 错误代码：不能在mutations中进行异步操作
+      setTimeout(() => {
+        state.info.name = 'gxy'
+      }, 1000)
 
       // 该属性未提前在state中定义，所以不在响应式系统中
       // state.info['address'] = 'xi`an'
@@ -59,11 +64,21 @@ const store = new Vuex.Store({
       // delete state.info.age
 
       // 该方式可使不是响应式的属性增加响应式
-      Vue.delete(state.info, 'age')
+      // Vue.delete(state.info, 'age')
     }
   },
   actions: {
+    // context 上下文
+    aUpdateInfo(context, payload) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          context.commit(UPDATEINFO)
+          console.log(payload);
 
+          resolve('1111111')
+        }, 1000)
+      })
+    }
   },
   getters: {
     powerCounter(state) {
