@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import {ADDSTUDENT, DECREMENT, INCREMENT, INCREMENTCOUNT, UPDATEINFO} from "./mutations-types";
 
 // 1.安装插件
 Vue.use(Vuex)
@@ -31,20 +32,20 @@ const store = new Vuex.Store({
   },
   mutations: {
     //方法
-    increment(state) {
+    [INCREMENT](state) {
       state.counter++
     },
-    decrement(state) {
+    [DECREMENT](state) {
       state.counter--
     },
-    incrementCount(state, payload) {
+    [INCREMENTCOUNT](state, payload) {
       // console.log(count);
       state.counter += payload.count
     },
-    addStudent(state, stu) {
+    [ADDSTUDENT](state, stu) {
       state.students.push(stu)
     },
-    updateInfo(state) {
+    [UPDATEINFO](state) {
       // state.info.name = 'ywy'
 
       // 该属性未提前在state中定义，所以不在响应式系统中

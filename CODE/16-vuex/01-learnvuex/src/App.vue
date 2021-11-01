@@ -26,6 +26,7 @@
 
 <script>
 import HelloVuex from "./components/HelloVuex";
+import * as types from "./store/mutations-types"
 
 export default {
   name: 'App',
@@ -39,10 +40,10 @@ export default {
   },
   methods: {
     addtion() {
-      this.$store.commit('increment')
+      this.$store.commit(types.INCREMENT)
     },
     subtraction() {
-      this.$store.commit('decrement')
+      this.$store.commit(types.DECREMENT)
     },
     /*
     * 参数被称为mutation的载荷(payload)
@@ -54,16 +55,16 @@ export default {
 
       // 2.特殊的提交风格
       this.$store.commit({
-        type: 'incrementCount',
+        type: types.INCREMENTCOUNT,
         count
       })
     },
     addStudent() {
       const stu = {id: 114, name: '白骨精', age: 999}
-      this.$store.commit('addStudent', stu)
+      this.$store.commit(types.ADDSTUDENT, stu)
     },
     updateInfo() {
-      this.$store.commit('updateInfo')
+      this.$store.commit(types.UPDATEINFO)
     }
   },
 }
