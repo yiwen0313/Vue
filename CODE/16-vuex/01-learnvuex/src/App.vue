@@ -15,6 +15,10 @@
     <h2>{{$store.getters.more20stuLength}}</h2>
     <h2>{{$store.getters.moreAgeStu(30)}}</h2>
 
+    <h2>-----------APP内容: info对象的内容是都是响应式的----------</h2>
+    <h2>{{$store.state.info}}</h2>
+    <button @click="updateInfo">修改info</button>
+
     <h2>-----------HelloVuex内容----------</h2>
     <hello-vuex/>
   </div>
@@ -57,6 +61,9 @@ export default {
     addStudent() {
       const stu = {id: 114, name: '白骨精', age: 999}
       this.$store.commit('addStudent', stu)
+    },
+    updateInfo() {
+      this.$store.commit('updateInfo')
     }
   },
 }
