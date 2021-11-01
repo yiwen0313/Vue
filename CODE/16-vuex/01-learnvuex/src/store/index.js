@@ -5,6 +5,35 @@ import {ADDSTUDENT, DECREMENT, INCREMENT, INCREMENTCOUNT, UPDATEINFO} from "./mu
 // 1.安装插件
 Vue.use(Vuex)
 
+const moduleA = {
+  state: {
+    name: 'zhangsan'
+  },
+  mutations: {
+    updateName(state, payload) {
+      state.name = payload
+    }
+  },
+  actions: {
+    aUpdateName(context) {
+      setTimeout(() => {
+        context.commit('updateName', 'wangwu')
+      }, 1000)
+    }
+  },
+  getters: {
+    fullname(state) {
+      return state.name + '钮钴禄'
+    },
+    fullname2(state, getters) {
+      return getters.fullname + '乌拉那拉'
+    },
+    fullname3(state, getters, rootState) {
+      return getters.fullname2 + rootState.counter
+    }
+  }
+}
+
 // 2.创建对象
 const store = new Vuex.Store({
   /*
@@ -95,6 +124,10 @@ const store = new Vuex.Store({
         return state.students.filter(s => s.age >= age)
       }
     }
+  },
+
+  modules: {
+    a: moduleA
   }
 })
 
