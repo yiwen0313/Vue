@@ -12,7 +12,7 @@ new Vue({
 
 
 // 1.axios的基本使用
-axios({
+/*axios({
   'url': 'http://152.136.185.210:7878/api/hy66/home/multidata',
   method: 'get'
 }).then(res => {
@@ -29,14 +29,17 @@ axios({
   }
 }).then(res => {
   console.log(res);
-})
+})*/
 
+
+axios.defaults.baseURL = 'http://152.136.185.210:7878/api/hy66'
+axios.defaults.timeout = 5000
 
 //2.axios的并发请求
 axios.all([axios({
-  'url': 'http://152.136.185.210:7878/api/hy66/home/multidata'
+  'url': '/home/multidata'
 }), axios({
-  url: 'http://152.136.185.210:7878/api/hy66/home/data',
+  url: '/home/data',
   params: {
     type: 'sell',
     page: 4
