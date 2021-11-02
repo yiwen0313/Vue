@@ -11,6 +11,7 @@ new Vue({
 })
 
 
+// 1.axios的基本使用
 axios({
   'url': 'http://152.136.185.210:7878/api/hy66/home/multidata',
   method: 'get'
@@ -29,3 +30,22 @@ axios({
 }).then(res => {
   console.log(res);
 })
+
+
+//2.axios的并发请求
+axios.all([axios({
+  'url': 'http://152.136.185.210:7878/api/hy66/home/multidata'
+}), axios({
+  url: 'http://152.136.185.210:7878/api/hy66/home/data',
+  params: {
+    type: 'sell',
+    page: 4
+  }
+})]).then(axios.spread((res1, res2) => {
+  console.log(res1);
+  console.log(res2);
+}))
+  /*.then(results => {
+      console.log(results);
+    })*/
+
