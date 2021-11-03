@@ -10,7 +10,7 @@ new Vue({
   render: h => h(App)
 })
 
-
+//-----------------3.使用全局的axios和对应的配置在进行网络请求------------------
 // 1.axios的基本使用
 /*axios({
   'url': 'http://152.136.185.210:7878/api/hy66/home/multidata',
@@ -32,7 +32,8 @@ axios({
 })*/
 
 
-axios.defaults.baseURL = 'http://152.136.185.210:7878/api/hy66'
+
+/*axios.defaults.baseURL = 'http://152.136.185.210:7878/api/hy66'
 axios.defaults.timeout = 5000
 
 //2.axios的并发请求
@@ -48,7 +49,73 @@ axios.all([axios({
   console.log(res1);
   console.log(res2);
 }))
-  /*.then(results => {
+  /!*.then(results => {
       console.log(results);
-    })*/
+    })*!/
 
+axios({
+  url: '/category'
+})*/
+
+
+
+//-----------------4.创建对应axios的实例------------------
+
+/*const instance1 = axios.create({
+  baseURL: 'http://152.136.185.210:7878/api/hy66',
+  timeout: 5000
+});
+
+instance1({
+  url: '/home/multidata'
+}).then(res => {
+  console.log(res);
+});
+
+instance1({
+  url: '/home/data',
+  params: {
+    type: 'sell',
+    page: 4
+  }
+}).then(res => {
+  console.log(res);
+})*/
+
+
+
+//----------------------5.封装request模块-------------------------
+import {request} from "./network/request"
+
+request({
+  url: '/home/multidata'
+}).then(res => {
+  console.log(res);
+}).then(err => {
+  console.log(err);
+})
+
+
+
+// 方法二对应的
+/*request({
+  baseConfig: {
+    url: '/home/multidata'
+  },
+  success: function(res) {
+    console.log(res);
+  },
+  failure: function (err) {
+    console.log(err);
+  }
+})*/
+
+
+// 方法一对应的
+/*request({
+  url: '/home/multidata'
+}, res => {
+  console.log(res);
+}, err => {
+  console.log(err);
+})*/
